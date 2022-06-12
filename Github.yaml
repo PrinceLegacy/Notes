@@ -1,0 +1,101 @@
+# UNDERSTANDING GIT & GITHUB
+
+What is GitHub:
+    GitHub is a cloud-hosted Git management tool like;-
+      - GitLabs
+      - BitBucket       
+
+What is Git:
+   Git is a distributed version control, meaning the entire repo and history lives wherever you put it. People tend use GitHub though in their business or development workflow as a managed hosting solution for backups of their repositories.
+
+What bis a Repository (repo):
+    It,s a Folder that contains all of your project's files and each file's revision history. You can discuss and manage your project's work within the repository. 
+
+What is a Git Branch:
+    A branch in GitHub is a unique set of code changes with a unique name.
+    The default branch name in Git is main. As you start making commits, you're given a main branch that points to the last commit you made. The main branch is the one where all changes eventually get merged back into.
+
+In Conclusion:
+    The most impotant thinh to understan here is that;-
+  * Git is tool,
+  * GitHub, GitLabs, GitBucket (and other hosting platforms) is a Service
+  * The process of Version Control Management
+
+# When working in Git, there are three-stage architecture:
+
+    The Working directory:
+        This is essentially your project folder.
+    The staging area:
+        This is the place where git track all the files that are going to be a part of the next commit, which lets git know what changes in the file are going to occur for the next commit.
+    Git directory:
+        This is a folder in yoyr computer that contains all information that is necessary for the project and all information relating commits, remote repository address, etc. It also contains a log that stores the commit history. This log can help you to roll back to the desired version of the code.
+What is difference between directory and repository in git?:
+    The repository is essentially the . git hidden folder inside the working directory (workspace). The working directory (workspace) is essentially your project folder in your computer.
+  NOTES: The term directory is basically synonymous to the term folder.
+
+
+# How to Push an Existing Project to GitHub
+
+Prerequisites:
+    To initialize the repo and push it to GitHub you’ll need
+        1. Create a free GitHub Account
+        2. Install git on your local machine
+
+Step 1; Create a new GitHub Repo:
+    Sign in to GitHub and create a new empty repo page. You can choose to either initialize a README or not. It doesn’t really matter because we’re just going to override everything in this remote repository anyways.
+    * After creating the GiyHub repo, click on "Code" and copy the "HTTPS/SSH keys" of the repo you just created and saev it on your clipboard.
+
+Step 2; Clone the repo in your local computer:
+    cd into the directory where you have your project folder and run the following command;
+
+  $ git clone "HTTPS"/"SSH key"
+
+        NOTES: When cloning whis "SSH keys", make sure you have generate your SSH keys locally on your computer, copy it and link it to your GitHub account. if not, you will have to run the git clone whith the "HTTPS"
+How to generate SSH keys and link it to GitHub: 
+    # https://github.com/ditahm6/it-ops-git/blob/main/ssh-git-notes.yaml
+
+Step 3; Initialize Git in the project folder:
+        From your terminal, run the following commands after navigating to folder you would like to add
+
+- Initialize the Git Repo:
+    Make sure you are in the root directory of the project you want to push to GitHub and run;
+
+  $ git init
+
+        NOTES: This step creates a hidden .git directory in your project folder which the git software recognizes and uses to store all the metadata and version history for the project. SO if you already have an initialized Git repository, you can skip this command
+
+- Add the files to Git index:
+
+  $ git add "file name" / $ git add -A
+
+        NOTES: The |git add "file name"| command is used to tell git which files to include in a commit, and the -A argument means “include all files”.
+
+- Commit Added Files:
+
+  $ git commit -m 'Added my project'
+
+        NOTES: The |git commit| command creates a new commit with all files that have been “added”. the |-m 'Added my project'| is the message that will be included alongside the commit, used for future reference to understand the commit.
+
+- Add new remote origin (in this case, GitHub):
+
+  $ git remote add origin git@github.com:User/my-project.git
+
+        NOTES: Don’t forget to replace the User/my-project above with your username and repo name.
+        In git, a “remote” refers to a remote version of the same repository, which is typically on a server somewhere (in this case GitHub.) “origin” is the default name git gives to a remote server (you can have multiple remotes) so git remote add origin is instructing git to add the URL of the default remote server for this repo.
+
+- Push to GitHub:
+
+  $ git push -u -f origin main
+
+        NOTES:
+      => With this, there are a few things to note. The -f flag stands for force. This will automatically overwrite everything in the remote directory. We’re only using it here to overwrite the README that GitHub automatically initialized. If you skipped that, the -f flag isn’t really necessary.
+      => The -u flag sets the remote origin as the default. This lets you later easily just do git push and git pull without having to specifying an origin since we always want GitHub in this case to.
+
+# => All Together
+
+  $ git init
+  $ git add -A
+  $ git commit -m 'Added my project'
+  $ git remote add origin git@github.com:sammy/my-new-project.git
+  $ git push -u -f origin master
+
