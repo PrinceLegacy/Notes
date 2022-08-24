@@ -1,5 +1,10 @@
 # UNDERSTANDING GIT & GITHUB
 
+Source/refrences
+    ##  https://codeburst.io/git-from-zero-to-hero-basics-9d8705f3b7dd
+    ##  https://codeburst.io/git-from-zero-to-hero-basics-9d8705f3b7dd
+    ##  https://www.youtube.com/watch?v=3fUbBnN_H2c&t=1194s
+
 What is GitHub:
     GitHub is a cloud-hosted Git management tool like;-
       - GitLabs
@@ -30,7 +35,7 @@ In Conclusion:
     Git directory:
         This is a folder in yoyr computer that contains all information that is necessary for the project and all information relating commits, remote repository address, etc. It also contains a log that stores the commit history. This log can help you to roll back to the desired version of the code.
 What is difference between directory and repository in git?:
-    The repository is essentially the . git hidden folder inside the working directory (workspace). The working directory (workspace) is essentially your project folder in your computer.
+    The repository is essentially the .git hidden folder inside the working directory (workspace). The working directory (workspace) is essentially your project folder in your computer.
   NOTES: The term directory is basically synonymous to the term folder.
 
 
@@ -43,7 +48,7 @@ Prerequisites:
 
 Step 1; Create a new GitHub Repo:
     Sign in to GitHub and create a new empty repo page. You can choose to either initialize a README or not. It doesn’t really matter because we’re just going to override everything in this remote repository anyways.
-    * After creating the GiyHub repo, click on "Code" and copy the "HTTPS/SSH keys" of the repo you just created and saev it on your clipboard.
+    * After creating the GiyHub repo, click on "Code" and copy the "HTTPS/SSH keys" of the repo you just created and save it on your clipboard.
 
 Step 2; Clone the repo in your local computer:
     cd into the directory where you have your project folder and run the following command;
@@ -66,15 +71,15 @@ Step 3; Initialize Git in the project folder:
 
 - Add the files to Git index:
 
-  $ git add "file name" / $ git add -A
+  $ git add <file name> || git add -A || git add .
 
-        NOTES: The |git add "file name"| command is used to tell git which files to include in a commit, and the -A argument means “include all files”.
+        NOTES: The |git add <file name>| command is used to tell git which files to include in a commit, and the -A argument means “include all files”.
 
 - Commit Added Files:
 
-  $ git commit -m 'Added my project'
+  $ git commit -m <Added my project>
 
-        NOTES: The |git commit| command creates a new commit with all files that have been “added”. the |-m 'Added my project'| is the message that will be included alongside the commit, used for future reference to understand the commit.
+        NOTES: The |git commit| command creates a new commit with all files that have been <added>. the |-m <Added my project>| is the message that will be included alongside the commit, used for future reference to understand the commit.
 
 - Add new remote origin (in this case, GitHub):
 
@@ -94,8 +99,8 @@ Step 3; Initialize Git in the project folder:
 # => All Together
 
   $ git init
-  $ git add -A
-  $ git commit -m 'Added my project'
+  $ git add <file name>
+  $ git commit -m <Added my project>
   $ git remote add origin git@github.com:sammy/my-new-project.git
   $ git push -u -f origin master
 
